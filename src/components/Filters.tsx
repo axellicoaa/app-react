@@ -8,20 +8,14 @@ export default function Filters({ onFilter }: FiltersProps) {
   const [search, setSearch] = useState("");
   const [estado, setEstado] = useState("todos");
   const [prioridad, setPrioridad] = useState("todas");
-  const [tickets, setTickets] = useState([]);
+
 
   useEffect(() => {
     onFilter(search.toLowerCase(), estado, prioridad);
   }, [search, estado, prioridad, onFilter]);
 
   return (
-    <>
-      {tickets.map((t) => (
-        <div>
-          <span>t.name</span>
-          <article>t.description</article>
-        </div>
-      ))}
+ 
       <section className="bg-white p-4 rounded shadow mb-6">
         <h3 className="font-semibold mb-2">Filtros</h3>
         <div className="flex flex-wrap gap-4 mt-2">
@@ -54,6 +48,6 @@ export default function Filters({ onFilter }: FiltersProps) {
           </select>
         </div>
       </section>
-    </>
+
   );
 }

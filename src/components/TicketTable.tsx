@@ -47,7 +47,7 @@ export default function TicketTable({ tickets }: TicketTableProps) {
         <tbody>
           {tickets.map(t => (
             <tr key={t.id} className="border-b">
-               <a href=""> <td className="px-4 py-2"><span className={`text-black text-sm font-extralight`}>{t.id} </span></td></a> 
+              <td className="px-4 py-2"> <a href=""> <span className={`text-black text-sm font-extralight`}>{t.id} </span> </a> </td>
               <td className="px-4 py-2" > <span className={`text-black text-sm font-extralight`}>{t.titulo} </span></td>
               <td className="px-4 py-2"><span className={`text-black text-sm font-extralight`}>{t.cliente} </span></td>
               <td className="px-4 py-2">
