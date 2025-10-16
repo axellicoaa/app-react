@@ -1,8 +1,15 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Search } from "lucide-react";
 
 export default function BuscarTicket() {
   const navigate = useNavigate();
+  const [codigo, setCodigo] = useState("");
+
+  const handleSearch = () => {
+    if (!codigo.trim()) return;
+    navigate(`/ticket/${codigo.trim().toUpperCase()}`);
+  };
 
   return (
     <div className="max-w-lg mx-auto mt-16 bg-white shadow-md rounded-2xl p-8">
@@ -23,9 +30,14 @@ export default function BuscarTicket() {
         <input
           type="text"
           placeholder="Ej: TK-001"
+          value={codigo}
+          onChange={(e) => setCodigo(e.target.value)}
           className="w-full border rounded-lg px-4 py-2 mb-3 focus:outline-none focus:ring focus:ring-gray-300"
         />
-        <button className="w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800">
+        <button
+          onClick={handleSearch}
+          className="w-full bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800"
+        >
           Buscar Ticket
         </button>
       </div>
@@ -36,6 +48,7 @@ export default function BuscarTicket() {
           {["TK-001", "TK-002", "TK-003"].map((code) => (
             <button
               key={code}
+              onClick={() => navigate(`/ticket/${code}`)}
               className="border rounded-lg px-4 py-2 hover:bg-gray-200 transition"
             >
               {code}

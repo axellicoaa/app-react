@@ -8,6 +8,7 @@ export default function Filters({ onFilter }: FiltersProps) {
   const [search, setSearch] = useState("");
   const [estado, setEstado] = useState("todos");
   const [prioridad, setPrioridad] = useState("todas");
+  
 
 
   useEffect(() => {
